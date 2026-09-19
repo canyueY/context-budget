@@ -1,0 +1,62 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "context-budget"
+version = "0.1.0"
+description = "把 LLM 对话历史裁到 token 预算内：保留人设，丢掉最旧的轮次（Trim LLM chat history to a token budget）"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "AGPL-3.0-or-later" }
+keywords = [
+    "llm",
+    "context-window",
+    "token-budget",
+    "chat-history",
+    "truncation",
+    "prompt",
+    "agent",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Typing :: Typed",
+]
+
+# 零运行时依赖：纯标准库，不绑定任何 tokenizer。
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+
+[project.urls]
+Homepage = "https://github.com/canyueY/context-budget"
+Repository = "https://github.com/canyueY/context-budget"
+Issues = "https://github.com/canyueY/context-budget/issues"
+Changelog = "https://github.com/canyueY/context-budget/blob/main/CHANGELOG.md"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["context_budget*"]
+
+[tool.setuptools.package-data]
+context_budget = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B"]
+ignore = ["E501"]

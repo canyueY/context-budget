@@ -134,3 +134,8 @@ uv run --python 3.10 --extra dev python -m pytest tests -q
 58 个用例，零依赖。重点覆盖那些"裁错了不会报错、但会让模型答非所问"的地方：
 `system` 有没有被误丢、问答有没有被拆散、时间播报有没有堆积、
 极小预算下最后一轮还在不在。
+
+
+---
+
+> **为什么还要开发 Mnemosyne？** [阅读全文 →](WHY_MNEMOSYNE.md)
